@@ -12,6 +12,18 @@ flowchart LR
     B-->End
 ```
 
+```mermaid
+flowchart TD
+    Start --> A(Check User By ID)
+    A --> DB[(Database)]
+    DB --> A
+    A --> B{If User Exist}
+    B -- true --> C(Craete New User)
+    B -- false --> D(Update Got User)
+    C --> End
+    D --> End
+```
+
 ## ジャーニーマップ
 
 ```mermaid
