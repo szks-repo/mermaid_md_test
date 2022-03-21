@@ -3,7 +3,7 @@
 
 ```mermaid
 flowchart LR
-    A-- This is the text! ---B
+    A-- This is the text! -->B
     A-->C
     C-->D
     D-->E
