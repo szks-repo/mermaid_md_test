@@ -6,7 +6,9 @@ flowchart LR
     A-- This is the text! ---B
     A-->C
     C-->D
-    D-->A
+    D-->E
+    E-->End
+    B-->End
 ```
 
 ## ジャーニーマップ
