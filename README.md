@@ -52,6 +52,19 @@ flowchart LR
     end
 ```
 
+## シーケンシャル図
+```mermaid
+sequenceDiagram
+  autonumber
+  Client->>+Server: GET /issues
+  Server--)Server2: 非同期リクエスト
+  Server-->>-Client: response
+  loop
+    Server2-->Server2: なにかしら
+    Note right of Server2: 処理が完了しなくても<br/>10秒で強制終了する
+  end
+```
+
 ## ジャーニーマップ
 
 ```mermaid
