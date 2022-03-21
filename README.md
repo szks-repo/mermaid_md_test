@@ -24,6 +24,34 @@ flowchart TD
     D --> End
 ```
 
+```mermaid
+flowchart LR
+
+    subgraph From cron
+    START(Start) --> B(Push Queue)
+    B --> End
+    end
+    
+    
+    subgraph Serverless
+    B --> SQS(AWS SQS)
+    L(AWS Lambda) -- Long Poling --> SQS
+    end
+    
+    
+    subgraph JOB WORKER
+    L -- calling worker --> J(Job Worker Start)
+    
+    J --> An(AnalizeData)
+    
+    S3 --> IF{OK} -- true --> BatchEnd(End)
+    
+    IF -- false --> Re(Retry) --> J
+    
+    An -- Push Result Object --> S3 
+    end
+```
+
 ## ジャーニーマップ
 
 ```mermaid
