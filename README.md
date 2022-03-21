@@ -65,6 +65,15 @@ sequenceDiagram
   end
 ```
 
+```mermaid
+sequenceDiagram
+  actor User
+  User ->> Display: Input Credential
+  Server1 ->> User: Return Result
+  Server1 ->> Server2: SendMessage
+  Server2 -) User: Say Hello
+```
+
 ## ジャーニーマップ
 
 ```mermaid
