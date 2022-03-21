@@ -1,9 +1,13 @@
 
+## フローチャート
+
 ```mermaid
 flowchart LR
     A-- This is the text! ---B
 
 ```
+
+## ジャーニーマップ
 
 ```mermaid
 journey
