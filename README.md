@@ -1,4 +1,67 @@
 
+## 構成図
+
+https://aws.amazon.com/jp/solutions/case-studies/mixi/
+
+```mermaid
+flowchart TD
+
+subgraph AWS Cloud
+    DNS[AWS Route53]
+    S3-1[Amazon S3 Bucket]
+    S3-2[Amazon S3 Bucker]
+    CF[Amazon Cloud Front]
+    CW[Amazon Cloud Watch]
+    CT[Amazon Cloud Trail]
+    Lambda[Amazon Lambda]
+    subgraph VPCBuildingClustor
+        ALB-1[Elastic Load Balancing]
+        EC2-1[EC2 Application Service]
+        RDS-1[(Amazon RDS)]
+    end
+
+    subgraph VPC
+        EC2Proxy[Amazon EC2 Proxy]
+        
+        subgraph "#graph1"
+            EC2-2[EC2 Application Service]
+            Queue[EC2 Job Queue]
+        end
+
+        CloudSearch[Amazon Cloud Search]
+        RDS-2[(Amazon RDS)]
+        Cache[Amazon ElastiCache]
+        EMR[Amazon EMR]
+    end
+
+    ElasticSearch[Amazon Elastic Search]
+    subgraph " "
+        EMR[Amazon EMR]
+        EMR -->  ElasticSearch
+    end
+end
+
+DirectConnect[AWS Direct Connect]
+
+subgraph Data Center
+DB[("DB")]
+end
+
+Internet --> DNS
+DNS --> EC2Proxy
+DNS --> CF
+EC2Proxy --> EC2-2
+EC2-2 --> ALB-1
+ALB-1 --> EC2-1
+EC2-1 --> RDS-1
+#graph1 --> CloudSearch
+#graph1 --> RDS-2
+#graph1 --> Cache
+#graph1 -- "image file" --> S3-1
+#graph1 --> DirectConnect --> DB
+DB --> S3-2
+```
+
 ## フローチャート
 
 ```mermaid
