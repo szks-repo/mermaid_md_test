@@ -1,7 +1,7 @@
 
 ## 構成図
 
-https://aws.amazon.com/jp/solutions/case-studies/mixi/
+https://aws.amazon.com/jp/solutions/case-studies/mixi/#:~:text=%E3%80%8C%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E3%83%9F%E3%82%AF%E3%82%B7%E3%82%A3%E6%A7%98%E3%80%80%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A7%8B%E6%88%90%E5%9B%B3%E3%80%8D
 
 ```mermaid
 flowchart TD
